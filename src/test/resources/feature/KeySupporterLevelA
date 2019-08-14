@@ -1,0 +1,21 @@
+Feature:  process a refund with valid data
+
+  Scenario Outline: Create New Supporter Record
+  Given I login to Salesforce URL
+  When I click on Contacts Page
+  And I type the existing contact name 'mark joe' in the 'Search this list' Search box and press 'Enter' to view the particular contact detail
+    And I click on the searched contact name
+  And I click on 'opportunities' under related list quick links
+  And I click on particular opportunity 'Mark Joe RC-00001 Donation'
+  And I click on 'Payments' under related list quick links
+  And I click on particular payment number
+  And I click on "refund" radio button
+  And I select 'Refund Type' as 'Partial'
+  And I provide values in Case Origin,Subject,Status,Refund Instrument,manual refund
+  And I enter 'Refund Amount' as 'aaa'
+  And I click on 'save' button
+  Then I verify that error message is display
+    Examples:
+      | First Name | Last Name  | Phone |
+      | jone      | sen        | 123456789 |
+

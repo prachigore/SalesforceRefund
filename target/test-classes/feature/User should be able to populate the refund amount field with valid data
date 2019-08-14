@@ -1,0 +1,29 @@
+Feature:  process a refund with valid data
+
+  Scenario Outline: Create New Supporter Record
+    Given I login to Salesforce URL
+    When I click on Contacts Page
+    And I type the existing contact name harry parker in the Search this list Search box and press Enter to view the particular contact detail
+    And I click on the searched contact name
+    And I click on 'opportunities' under related list quick links
+    And I click on particular opportunity name "harry parker CAMPFL00002 Donation" link
+    And I click on Payments under related list quick links
+    And I click on Payment "PMT-01731" link
+    And I click on paid edit button
+    And I make payment paid
+    And I click on date edit button
+    And I select date "2019-08-14" for payment
+    And I Click on "Save" button
+    And I click on refund radio button
+    And I click on Refund Type
+    And I select Partial
+    And I click on refund amount
+    And I enter "50"
+    And I provide Case Origin,Refund Instrument,Bank Account No and Bank BSB
+    |Case Origin|Refund Instrument|Bank Account No|Bank BSB|
+    |<Case Origin>|<Refund Instrument>|<Bank Account No>|<Bank BSB>|
+    And I click on 'save' button
+    Then I verify that error message is display
+    Examples:
+      | Case Origin |Refund Instrument |Bank Account No|Bank BSB|
+      | Email     | Direct Deposit     |   123456789            |   123456     |

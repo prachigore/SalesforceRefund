@@ -1,0 +1,13 @@
+Feature:  Login to Salesforce and create new supporter record and verify details
+  As a Salesforce user, login to Salesforce and create new supporter record and Verify the details
+
+
+
+  Scenario Outline: Create New Supporter Record
+    Given I login to Salesforce URL
+    And I click on dropdown
+    And I click on 'New Contact' button
+
+    Examples:
+    | Value |
+    | <Value> |
