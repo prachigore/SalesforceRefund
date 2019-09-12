@@ -1,0 +1,31 @@
+Feature:  Adjustment flow
+  Scenario: : validating adjustment form fields for negative amount
+    Given I login to Salesforce URL
+    When I click on Contacts Page
+    And I click on Recently Viewed dropdown Select List View
+    And I select "All Contacts" from the list view
+    And I type the contact "Michael E Evans" in the Search box and press Enter to view the particular contact detail
+    And I click on the searched contact name
+   # And I click on Related tab under Contact record
+    And I clickon Opportunities button
+    And I click on Opportunities name Michael E Evans AW0903RAO1-Tel Donation link
+    And I click on "Related" Tab
+    And I click on Payment
+    #And I click on Paid CheckBox with click on Edit Paid option
+    #And I select Payment Date from payment date 2019-09-27
+    #And I click on Save button
+    And I scroll up to page
+    And I click "Adjustment" radiobutton
+    #And I click "Adjust Campaign/Product" button
+    And I clicked "Adjust Campaign/Product" radio button
+    #And I clear CAMPAIGN NAME field
+    #And I clear out PRODUCT field
+    And I cleared AMOUNT field
+    And I entered negative amount
+    #And I provide campaign name,product and amount
+     # | campaign name  |  product | amount |
+      #| <campaign name> | <product> | <amount> |
+   Then I verify "Please enter positive and nonzero amount" display
+   # Examples:
+      #| campaign name | product | amount |
+      #|  CPJOIN  |  4780AG   | -10 |
